@@ -34,21 +34,21 @@ Partial Class Connexion
         '
         'TextBoxID
         '
-        Me.TextBoxID.Location = New System.Drawing.Point(94, 10)
+        Me.TextBoxID.Location = New System.Drawing.Point(118, 14)
         Me.TextBoxID.Name = "TextBoxID"
         Me.TextBoxID.Size = New System.Drawing.Size(120, 20)
         Me.TextBoxID.TabIndex = 0
         '
         'TextBoxMDP
         '
-        Me.TextBoxMDP.Location = New System.Drawing.Point(94, 36)
+        Me.TextBoxMDP.Location = New System.Drawing.Point(118, 40)
         Me.TextBoxMDP.Name = "TextBoxMDP"
         Me.TextBoxMDP.Size = New System.Drawing.Size(120, 20)
         Me.TextBoxMDP.TabIndex = 1
         '
         'ButtonDemandeID
         '
-        Me.ButtonDemandeID.Location = New System.Drawing.Point(92, 135)
+        Me.ButtonDemandeID.Location = New System.Drawing.Point(92, 130)
         Me.ButtonDemandeID.Name = "ButtonDemandeID"
         Me.ButtonDemandeID.Size = New System.Drawing.Size(121, 23)
         Me.ButtonDemandeID.TabIndex = 2
@@ -58,7 +58,7 @@ Partial Class Connexion
         'LabelID
         '
         Me.LabelID.AutoSize = True
-        Me.LabelID.Location = New System.Drawing.Point(29, 13)
+        Me.LabelID.Location = New System.Drawing.Point(53, 17)
         Me.LabelID.Name = "LabelID"
         Me.LabelID.Size = New System.Drawing.Size(59, 13)
         Me.LabelID.TabIndex = 3
@@ -67,7 +67,7 @@ Partial Class Connexion
         'LabelMDP
         '
         Me.LabelMDP.AutoSize = True
-        Me.LabelMDP.Location = New System.Drawing.Point(11, 39)
+        Me.LabelMDP.Location = New System.Drawing.Point(35, 43)
         Me.LabelMDP.Name = "LabelMDP"
         Me.LabelMDP.Size = New System.Drawing.Size(77, 13)
         Me.LabelMDP.TabIndex = 4
@@ -75,7 +75,7 @@ Partial Class Connexion
         '
         'ButtonConnexion
         '
-        Me.ButtonConnexion.Location = New System.Drawing.Point(93, 106)
+        Me.ButtonConnexion.Location = New System.Drawing.Point(93, 101)
         Me.ButtonConnexion.Name = "ButtonConnexion"
         Me.ButtonConnexion.Size = New System.Drawing.Size(121, 23)
         Me.ButtonConnexion.TabIndex = 5
@@ -86,7 +86,7 @@ Partial Class Connexion
         '
         Me.ComboBoxSociete.FormattingEnabled = True
         Me.ComboBoxSociete.Items.AddRange(New Object() {"SRI", "RIGAU"})
-        Me.ComboBoxSociete.Location = New System.Drawing.Point(94, 63)
+        Me.ComboBoxSociete.Location = New System.Drawing.Point(118, 67)
         Me.ComboBoxSociete.Name = "ComboBoxSociete"
         Me.ComboBoxSociete.Size = New System.Drawing.Size(121, 21)
         Me.ComboBoxSociete.TabIndex = 6
@@ -94,13 +94,13 @@ Partial Class Connexion
         'LabelSociete
         '
         Me.LabelSociete.AutoSize = True
-        Me.LabelSociete.Location = New System.Drawing.Point(39, 66)
+        Me.LabelSociete.Location = New System.Drawing.Point(63, 70)
         Me.LabelSociete.Name = "LabelSociete"
         Me.LabelSociete.Size = New System.Drawing.Size(49, 13)
         Me.LabelSociete.TabIndex = 7
         Me.LabelSociete.Text = "Société :"
         '
-        'Form1
+        'Connexion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -113,7 +113,7 @@ Partial Class Connexion
         Me.Controls.Add(Me.ButtonDemandeID)
         Me.Controls.Add(Me.TextBoxMDP)
         Me.Controls.Add(Me.TextBoxID)
-        Me.Name = "Form1"
+        Me.Name = "Connexion"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()

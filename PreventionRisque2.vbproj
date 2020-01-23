@@ -83,6 +83,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetContient.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetContient.vb">
+      <DependentUpon>DataSetContient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EditActivite.Designer.vb">
+      <DependentUpon>EditActivite.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditActivite.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProcessus.Designer.vb">
+      <DependentUpon>EditProcessus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditProcessus.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainPage.Designer.vb">
       <DependentUpon>MainPage.vb</DependentUpon>
     </Compile>
@@ -110,6 +125,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditActivite.resx">
+      <DependentUpon>EditActivite.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProcessus.resx">
+      <DependentUpon>EditProcessus.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.vb</DependentUpon>

@@ -10,13 +10,12 @@ Public Class Connexion
             Dim reader As SqlDataReader = command.ExecuteReader
             reader.Read()
             If reader.HasRows Then
-                Console.WriteLine("CONNECTE")
                 societe = ComboBoxSociete.Text
                 identifiant = TextBoxID.Text
                 MainPage.Show()
                 Me.Close()
             Else
-                Console.WriteLine("PAS CONNECTE")
+                MsgBox("Identifiants non valide.")
             End If
             reader.Close()
             con.Close()
@@ -33,5 +32,11 @@ Public Class Connexion
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBoxSociete.SelectedIndex = 0
+    End Sub
+
+    Private Sub TextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxID.KeyDown, TextBoxMDP.KeyDown
+        If e.KeyCode = Keys.Return Then
+            ButtonConnexion_Click(ButtonConnexion, New EventArgs)
+        End If
     End Sub
 End Class
