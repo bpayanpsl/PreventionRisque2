@@ -4,6 +4,13 @@ Public Class MainPage
 
     Private Sub MainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChargeProcessus()
+        If societe = "SRI" Then
+            SRIToolStripMenuItem.Checked = True
+        ElseIf societe = "RIGAU" Then
+            RIGAUToolStripMenuItem.Checked = True
+        End If
+        Me.Width = 1764
+        Me.Height = 440
     End Sub
 
     Private Sub ChargeRisques()
@@ -14,9 +21,20 @@ Public Class MainPage
     End Sub
 
     Private Sub ChargeProcessus()
-        For i = 0 To tabProcessusLigne - 1
-            ComboBoxProcessus.Items.Add(tabProcessus(i, 0))
-        Next
+        'For i = 0 To tabProcessusLigne - 1
+        '    ComboBoxProcessus.Items.Add(tabProcessus(i, 0))
+        'Next
+        con.Open()
+        Dim query As String = "SELECT idProcessus FROM gpsql.duer_processus"
+        Dim command As New SqlCommand(query, con)
+        Dim reader As SqlDataReader = command.ExecuteReader()
+        If reader.HasRows Then
+            While reader.Read
+                ComboBoxProcessus.Items.Add(reader("idProcessus"))
+            End While
+        End If
+        reader.Close()
+        con.Close()
     End Sub
 
     Private Sub ComboBoxProcessus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxProcessus.SelectedIndexChanged
@@ -46,15 +64,18 @@ Public Class MainPage
     End Sub
 
     Private Sub ButtonAjoutProcessus_Click(sender As Object, e As EventArgs) Handles ButtonAjoutProcessus.Click
-        EditProcessus.Show()
+        EditProcessus.ShowDialog()
+        ChargeProcessus()
     End Sub
 
     Private Sub ButtonAjoutActivite_Click(sender As Object, e As EventArgs) Handles ButtonAjoutActivite.Click
-        EditActivite.Show()
+        EditActivite.ShowDialog()
     End Sub
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
         calculeCriticite()
+        DataGridView1.CurrentRow.Cells(10).Value = identifiant
+        DataGridView1.CurrentRow.Cells(11).Value = Date.Now
         DuercontientBindingSource.EndEdit()
         If Me.DataSetContient.HasChanges Then
             Me.Duer_contientTableAdapter.Update(Me.DataSetContient.duer_contient)
@@ -70,6 +91,19 @@ Public Class MainPage
                 row.Cells(3).Value = 0
             End If
             row.Cells(4).Value = row.Cells(2).Value * row.Cells(3).Value
+            If row.Cells(4).Value < 25 Then
+                row.Cells(5).Value = "Faible"
+                row.Cells(5).Style.BackColor = Color.FromArgb(0, 255, 74)
+            ElseIf row.Cells(4).Value >= 25 And row.Cells(4).Value < 50 Then
+                row.Cells(5).Value = "Moyenne"
+                row.Cells(5).Style.BackColor = Color.FromArgb(255, 255, 74)
+            ElseIf row.Cells(4).Value >= 50 And row.Cells(4).Value < 75 Then
+                row.Cells(5).Value = "Importante"
+                row.Cells(5).Style.BackColor = Color.FromArgb(255, 128, 32)
+            ElseIf row.Cells(4).Value >= 75 Then
+                row.Cells(5).Value = "Grave"
+                row.Cells(5).Style.BackColor = Color.FromArgb(255, 32, 0)
+            End If
         Next
     End Sub
 
@@ -84,7 +118,8 @@ Public Class MainPage
         While CheckedListBoxRisque.CheckedItems.Count > 0
             CheckedListBoxRisque.Items.RemoveAt(CheckedListBoxRisque.CheckedIndices(0))
         End While
-        Me.Duer_contientTableAdapter.FillByProcActSoc(Me.DataSetContient.duer_contient, ComboBoxProcessus.Text, ComboBoxActivite.Text, societe.ToString)
+        Me.Duer_contientTableAdapter.FillByProcActSoc(Me.DataSetContient.duer_contient, ComboBoxProcessus.Text, ComboBoxActivite.Text, societe)
+        calculeCriticite()
     End Sub
 
     Private Sub FermerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerToolStripMenuItem.Click
@@ -102,5 +137,46 @@ Public Class MainPage
             SRIToolStripMenuItem.CheckState = CheckState.Unchecked
             societe = "RIGAU"
         End If
+        initialiseInterface()
+    End Sub
+
+    Private Sub initialiseInterface()
+        ComboBoxProcessus.Text = ""
+        ComboBoxActivite.Text = ""
+        ComboBoxActivite.Items.Clear()
+        CheckedListBoxRisque.Items.Clear()
+        DataSetContient.Clear()
+        DataGridView1.Refresh()
+    End Sub
+
+    Private Sub DataGridView1_MouseDown(sender As Object, e As MouseEventArgs) Handles DataGridView1.MouseDown
+        If DataGridView1.Rows.Count > 0 Then
+            If e.Button = Windows.Forms.MouseButtons.Right Then
+                Dim hit = DataGridView1.HitTest(e.X, e.Y)
+                DataGridView1.ClearSelection()
+                If hit.ColumnIndex <> -1 And hit.RowIndex <> -1 Then
+                    DataGridView1(hit.ColumnIndex, hit.RowIndex).Selected = True
+                    DataGridView1.ContextMenuStrip = ContextMenuStrip1
+                Else
+                    DataGridView1.ClearSelection()
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItemSuppr_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSuppr.Click
+        DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
+        DataGridView1.ClearSelection()
+    End Sub
+
+    Private Sub DataGridView1_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles DataGridView1.RowsRemoved
+        DuercontientBindingSource.EndEdit()
+        If Me.DataSetContient.HasChanges Then
+            Me.Duer_contientTableAdapter.Update(Me.DataSetContient.duer_contient)
+        End If
+    End Sub
+
+    Private Sub DataGridView1_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles DataGridView1.UserDeletedRow
+        calculeCriticite()
     End Sub
 End Class

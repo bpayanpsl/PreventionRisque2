@@ -43,15 +43,16 @@ Partial Class Connexion
         '
         Me.TextBoxMDP.Location = New System.Drawing.Point(118, 40)
         Me.TextBoxMDP.Name = "TextBoxMDP"
+        Me.TextBoxMDP.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBoxMDP.Size = New System.Drawing.Size(120, 20)
         Me.TextBoxMDP.TabIndex = 1
         '
         'ButtonDemandeID
         '
-        Me.ButtonDemandeID.Location = New System.Drawing.Point(92, 130)
+        Me.ButtonDemandeID.Location = New System.Drawing.Point(157, 94)
         Me.ButtonDemandeID.Name = "ButtonDemandeID"
         Me.ButtonDemandeID.Size = New System.Drawing.Size(121, 23)
-        Me.ButtonDemandeID.TabIndex = 2
+        Me.ButtonDemandeID.TabIndex = 4
         Me.ButtonDemandeID.Text = "Demande d'identifiant"
         Me.ButtonDemandeID.UseVisualStyleBackColor = True
         '
@@ -75,10 +76,10 @@ Partial Class Connexion
         '
         'ButtonConnexion
         '
-        Me.ButtonConnexion.Location = New System.Drawing.Point(93, 101)
+        Me.ButtonConnexion.Location = New System.Drawing.Point(30, 94)
         Me.ButtonConnexion.Name = "ButtonConnexion"
         Me.ButtonConnexion.Size = New System.Drawing.Size(121, 23)
-        Me.ButtonConnexion.TabIndex = 5
+        Me.ButtonConnexion.TabIndex = 3
         Me.ButtonConnexion.Text = "Connexion"
         Me.ButtonConnexion.UseVisualStyleBackColor = True
         '
@@ -89,7 +90,7 @@ Partial Class Connexion
         Me.ComboBoxSociete.Location = New System.Drawing.Point(118, 67)
         Me.ComboBoxSociete.Name = "ComboBoxSociete"
         Me.ComboBoxSociete.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBoxSociete.TabIndex = 6
+        Me.ComboBoxSociete.TabIndex = 2
         '
         'LabelSociete
         '
@@ -104,7 +105,7 @@ Partial Class Connexion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(305, 165)
+        Me.ClientSize = New System.Drawing.Size(305, 128)
         Me.Controls.Add(Me.LabelSociete)
         Me.Controls.Add(Me.ComboBoxSociete)
         Me.Controls.Add(Me.ButtonConnexion)

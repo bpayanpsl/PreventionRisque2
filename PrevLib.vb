@@ -36,7 +36,7 @@ Module PrevLib
         {"BE"},
         {"Chargé affaire"},
         {"Commercial"},
-        {"Commercial"},
+        {"Entretien"},
         {"Expédition"},
         {"Informatique"},
         {"Magasin/Controle"},

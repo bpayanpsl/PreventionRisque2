@@ -8,6 +8,7 @@ Module PrevUtil
 
         con.Open()
         Dim query As String = "SELECT idActivite FROM GPSQL.duer_appartient WHERE idProcessus = '" & MainPage.ComboBoxProcessus.Text & "' AND societe = '" & societe & "'"
+        Console.WriteLine(query)
         Dim command As New SqlCommand(query, con)
         Dim reader As SqlDataReader = command.ExecuteReader
         If reader.HasRows Then

@@ -23,74 +23,75 @@ Partial Class EditProcessus
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.CheckedListBoxTotalProc = New System.Windows.Forms.CheckedListBox()
-        Me.CheckedListBoxSelectProc = New System.Windows.Forms.CheckedListBox()
-        Me.ButtonAjout = New System.Windows.Forms.Button()
         Me.ButtonSuppr = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
+        Me.TextBoxNewProc = New System.Windows.Forms.TextBox()
+        Me.ButtonAjouter = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'CheckedListBoxTotalProc
         '
         Me.CheckedListBoxTotalProc.FormattingEnabled = True
-        Me.CheckedListBoxTotalProc.Location = New System.Drawing.Point(12, 12)
+        Me.CheckedListBoxTotalProc.Location = New System.Drawing.Point(12, 68)
         Me.CheckedListBoxTotalProc.Name = "CheckedListBoxTotalProc"
-        Me.CheckedListBoxTotalProc.Size = New System.Drawing.Size(211, 184)
+        Me.CheckedListBoxTotalProc.Size = New System.Drawing.Size(211, 154)
+        Me.CheckedListBoxTotalProc.Sorted = True
         Me.CheckedListBoxTotalProc.TabIndex = 0
-        '
-        'CheckedListBoxSelectProc
-        '
-        Me.CheckedListBoxSelectProc.FormattingEnabled = True
-        Me.CheckedListBoxSelectProc.Location = New System.Drawing.Point(278, 12)
-        Me.CheckedListBoxSelectProc.Name = "CheckedListBoxSelectProc"
-        Me.CheckedListBoxSelectProc.Size = New System.Drawing.Size(208, 184)
-        Me.CheckedListBoxSelectProc.TabIndex = 1
-        '
-        'ButtonAjout
-        '
-        Me.ButtonAjout.Location = New System.Drawing.Point(229, 58)
-        Me.ButtonAjout.Name = "ButtonAjout"
-        Me.ButtonAjout.Size = New System.Drawing.Size(43, 34)
-        Me.ButtonAjout.TabIndex = 2
-        Me.ButtonAjout.Text = ">"
-        Me.ButtonAjout.UseVisualStyleBackColor = True
         '
         'ButtonSuppr
         '
-        Me.ButtonSuppr.Location = New System.Drawing.Point(229, 98)
+        Me.ButtonSuppr.Location = New System.Drawing.Point(73, 228)
         Me.ButtonSuppr.Name = "ButtonSuppr"
-        Me.ButtonSuppr.Size = New System.Drawing.Size(43, 34)
+        Me.ButtonSuppr.Size = New System.Drawing.Size(92, 24)
         Me.ButtonSuppr.TabIndex = 3
         Me.ButtonSuppr.Tag = ""
-        Me.ButtonSuppr.Text = "<"
+        Me.ButtonSuppr.Text = "Supprimer"
         Me.ButtonSuppr.UseVisualStyleBackColor = True
         '
         'ButtonOK
         '
-        Me.ButtonOK.Location = New System.Drawing.Point(211, 202)
+        Me.ButtonOK.Location = New System.Drawing.Point(73, 265)
         Me.ButtonOK.Name = "ButtonOK"
-        Me.ButtonOK.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonOK.Size = New System.Drawing.Size(92, 23)
         Me.ButtonOK.TabIndex = 4
         Me.ButtonOK.Text = "OK"
         Me.ButtonOK.UseVisualStyleBackColor = True
+        '
+        'TextBoxNewProc
+        '
+        Me.TextBoxNewProc.Location = New System.Drawing.Point(12, 7)
+        Me.TextBoxNewProc.Name = "TextBoxNewProc"
+        Me.TextBoxNewProc.Size = New System.Drawing.Size(211, 20)
+        Me.TextBoxNewProc.TabIndex = 5
+        '
+        'ButtonAjouter
+        '
+        Me.ButtonAjouter.Location = New System.Drawing.Point(64, 33)
+        Me.ButtonAjouter.Name = "ButtonAjouter"
+        Me.ButtonAjouter.Size = New System.Drawing.Size(92, 23)
+        Me.ButtonAjouter.TabIndex = 6
+        Me.ButtonAjouter.Text = "Ajouter"
+        Me.ButtonAjouter.UseVisualStyleBackColor = True
         '
         'EditProcessus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(498, 231)
+        Me.ClientSize = New System.Drawing.Size(236, 293)
+        Me.Controls.Add(Me.ButtonAjouter)
+        Me.Controls.Add(Me.TextBoxNewProc)
         Me.Controls.Add(Me.ButtonOK)
         Me.Controls.Add(Me.ButtonSuppr)
-        Me.Controls.Add(Me.ButtonAjout)
-        Me.Controls.Add(Me.CheckedListBoxSelectProc)
         Me.Controls.Add(Me.CheckedListBoxTotalProc)
         Me.Name = "EditProcessus"
         Me.Text = "EditProcessus"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents CheckedListBoxTotalProc As System.Windows.Forms.CheckedListBox
-    Friend WithEvents CheckedListBoxSelectProc As System.Windows.Forms.CheckedListBox
-    Friend WithEvents ButtonAjout As System.Windows.Forms.Button
     Friend WithEvents ButtonSuppr As System.Windows.Forms.Button
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
+    Friend WithEvents TextBoxNewProc As System.Windows.Forms.TextBox
+    Friend WithEvents ButtonAjouter As System.Windows.Forms.Button
 End Class

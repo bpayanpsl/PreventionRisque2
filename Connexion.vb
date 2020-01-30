@@ -12,13 +12,15 @@ Public Class Connexion
             If reader.HasRows Then
                 societe = ComboBoxSociete.Text
                 identifiant = TextBoxID.Text
+                reader.Close()
+                con.Close()
                 MainPage.Show()
                 Me.Close()
             Else
                 MsgBox("Identifiants non valide.")
+                reader.Close()
+                con.Close()
             End If
-            reader.Close()
-            con.Close()
         Else
             If TextBoxID.Text = "" Then
                 TextBoxID.BackColor = Color.LightSteelBlue
