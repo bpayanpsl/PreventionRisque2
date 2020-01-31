@@ -3,6 +3,7 @@
 Public Class EditProcessus
 
     Private Sub EditProcessus_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CheckedListBoxTotalProc.Items.Clear()
         For i = 0 To MainPage.ComboBoxProcessus.Items.Count - 1
             CheckedListBoxTotalProc.Items.Add(MainPage.ComboBoxProcessus.Items(i))
         Next
@@ -29,13 +30,25 @@ Public Class EditProcessus
         If TextBoxNewProc.Text = "" Then
             TextBoxNewProc.BackColor = Color.LightSteelBlue
         Else
-            CheckedListBoxTotalProc.Items.Add(TextBoxNewProc.Text)
-            con.Open()
-            Dim query As String = "INSERT INTO gpsql.duer_processus VALUES ('" & TextBoxNewProc.Text & "')"
-            Dim command As New SqlCommand(query, con)
-            command.ExecuteNonQuery()
-            con.Close()
-            TextBoxNewProc.Clear()
+            Dim ok As Boolean = True
+            For i = 0 To CheckedListBoxTotalProc.Items.Count - 1
+                If CheckedListBoxTotalProc.Items(i).ToString.ToLower = TextBoxNewProc.Text.ToLower Then
+                    ok = False
+                    Exit For
+                End If
+            Next
+            If ok = True Then
+                CheckedListBoxTotalProc.Items.Add(TextBoxNewProc.Text)
+                con.Open()
+                Dim query As String = "INSERT INTO gpsql.duer_processus VALUES ('" & TextBoxNewProc.Text & "')"
+                Dim command As New SqlCommand(query, con)
+                command.ExecuteNonQuery()
+                con.Close()
+                TextBoxNewProc.Clear()
+            Else
+                MsgBox("Le processus existe déjà.")
+                TextBoxNewProc.Clear()
+            End If
         End If
     End Sub
 End Class

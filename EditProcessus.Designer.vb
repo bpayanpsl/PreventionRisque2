@@ -31,6 +31,7 @@ Partial Class EditProcessus
         '
         'CheckedListBoxTotalProc
         '
+        Me.CheckedListBoxTotalProc.CheckOnClick = True
         Me.CheckedListBoxTotalProc.FormattingEnabled = True
         Me.CheckedListBoxTotalProc.Location = New System.Drawing.Point(12, 68)
         Me.CheckedListBoxTotalProc.Name = "CheckedListBoxTotalProc"
@@ -50,7 +51,7 @@ Partial Class EditProcessus
         '
         'ButtonOK
         '
-        Me.ButtonOK.Location = New System.Drawing.Point(73, 265)
+        Me.ButtonOK.Location = New System.Drawing.Point(73, 259)
         Me.ButtonOK.Name = "ButtonOK"
         Me.ButtonOK.Size = New System.Drawing.Size(92, 23)
         Me.ButtonOK.TabIndex = 4
@@ -77,12 +78,18 @@ Partial Class EditProcessus
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(236, 293)
+        Me.ClientSize = New System.Drawing.Size(236, 286)
+        Me.ControlBox = False
         Me.Controls.Add(Me.ButtonAjouter)
         Me.Controls.Add(Me.TextBoxNewProc)
         Me.Controls.Add(Me.ButtonOK)
         Me.Controls.Add(Me.ButtonSuppr)
         Me.Controls.Add(Me.CheckedListBoxTotalProc)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(252, 325)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(252, 325)
         Me.Name = "EditProcessus"
         Me.Text = "EditProcessus"
         Me.ResumeLayout(False)

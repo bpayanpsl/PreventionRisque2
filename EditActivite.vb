@@ -4,12 +4,10 @@ Public Class EditActivite
 
     Private Sub EditActivite_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initForm()
-        For i = 0 To MainPage.ComboBoxActivite.Items.Count - 1
-            CheckedListBoxSelectAct.Items.Add(MainPage.ComboBoxActivite.Items(i))
-        Next
     End Sub
 
     Private Sub initForm()
+        CheckedListBoxTotalAct.Items.Clear()
         con.Open()
         Dim query As String = "SELECT idActivite FROM GPSQL.duer_activite WHERE idActivite NOT IN (SELECT idActivite FROM GPSQL.duer_appartient WHERE idProcessus = '" & MainPage.ComboBoxProcessus.Text & "') ORDER BY idActivite"
         Dim command As New SqlCommand(query, con)
@@ -21,6 +19,11 @@ Public Class EditActivite
         End If
         reader.Close()
         con.Close()
+
+        CheckedListBoxSelectAct.Items.Clear()
+        For i = 0 To MainPage.ComboBoxActivite.Items.Count - 1
+            CheckedListBoxSelectAct.Items.Add(MainPage.ComboBoxActivite.Items(i))
+        Next
     End Sub
 
     Private Sub ButtonAjout_Click(sender As Object, e As EventArgs) Handles ButtonAjout.Click

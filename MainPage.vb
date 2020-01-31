@@ -4,6 +4,9 @@ Public Class MainPage
 
     Private Sub MainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChargeProcessus()
+        '' /////////////////////////////
+        If societe = "" Then societe = "SRI" ' WORKAROUND
+        '' /////////////////////////////
         If societe = "SRI" Then
             SRIToolStripMenuItem.Checked = True
         ElseIf societe = "RIGAU" Then
@@ -13,17 +16,14 @@ Public Class MainPage
         Me.Height = 440
     End Sub
 
-    Private Sub ChargeRisques()
-        ' Peut etre pas utile
-        For i = 0 To TabRisquesLigne - 1
-            CheckedListBoxRisque.Items.Add(tabRisques(i, 0))
-        Next
-    End Sub
-
     Private Sub ChargeProcessus()
+        ' FROM LIST
         'For i = 0 To tabProcessusLigne - 1
         '    ComboBoxProcessus.Items.Add(tabProcessus(i, 0))
         'Next
+
+        ' FROM DATABASE
+        ComboBoxProcessus.Items.Clear()
         con.Open()
         Dim query As String = "SELECT idProcessus FROM gpsql.duer_processus"
         Dim command As New SqlCommand(query, con)
@@ -149,22 +149,7 @@ Public Class MainPage
         DataGridView1.Refresh()
     End Sub
 
-    Private Sub DataGridView1_MouseDown(sender As Object, e As MouseEventArgs) Handles DataGridView1.MouseDown
-        If DataGridView1.Rows.Count > 0 Then
-            If e.Button = Windows.Forms.MouseButtons.Right Then
-                Dim hit = DataGridView1.HitTest(e.X, e.Y)
-                DataGridView1.ClearSelection()
-                If hit.ColumnIndex <> -1 And hit.RowIndex <> -1 Then
-                    DataGridView1(hit.ColumnIndex, hit.RowIndex).Selected = True
-                    DataGridView1.ContextMenuStrip = ContextMenuStrip1
-                Else
-                    DataGridView1.ClearSelection()
-                End If
-            End If
-        End If
-    End Sub
-
-    Private Sub ToolStripMenuItemSuppr_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSuppr.Click
+    Private Sub ToolStripMenuItemSuppr_Click(sender As Object, e As EventArgs)
         DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
         DataGridView1.ClearSelection()
     End Sub
@@ -174,9 +159,18 @@ Public Class MainPage
         If Me.DataSetContient.HasChanges Then
             Me.Duer_contientTableAdapter.Update(Me.DataSetContient.duer_contient)
         End If
+        rempliRisques()
     End Sub
 
     Private Sub DataGridView1_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles DataGridView1.UserDeletedRow
         calculeCriticite()
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        Dim senderGrid = CType(sender, DataGridView)
+        If TypeOf (senderGrid.Columns(e.ColumnIndex)) Is DataGridViewButtonColumn And e.RowIndex >= 0 Then
+            DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
+            DataGridView1.ClearSelection()
+        End If
     End Sub
 End Class

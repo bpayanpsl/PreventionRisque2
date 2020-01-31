@@ -61,6 +61,7 @@ Partial Class EditActivite
         '
         'CheckedListBoxSelectAct
         '
+        Me.CheckedListBoxSelectAct.CheckOnClick = True
         Me.CheckedListBoxSelectAct.FormattingEnabled = True
         Me.CheckedListBoxSelectAct.HorizontalScrollbar = True
         Me.CheckedListBoxSelectAct.Location = New System.Drawing.Point(420, 32)
@@ -71,6 +72,7 @@ Partial Class EditActivite
         '
         'CheckedListBoxTotalAct
         '
+        Me.CheckedListBoxTotalAct.CheckOnClick = True
         Me.CheckedListBoxTotalAct.FormattingEnabled = True
         Me.CheckedListBoxTotalAct.HorizontalScrollbar = True
         Me.CheckedListBoxTotalAct.Location = New System.Drawing.Point(12, 32)
@@ -100,6 +102,7 @@ Partial Class EditActivite
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(787, 339)
+        Me.ControlBox = False
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextboxRecherche)
         Me.Controls.Add(Me.ButtonOK)
@@ -107,6 +110,11 @@ Partial Class EditActivite
         Me.Controls.Add(Me.ButtonAjout)
         Me.Controls.Add(Me.CheckedListBoxSelectAct)
         Me.Controls.Add(Me.CheckedListBoxTotalAct)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(803, 378)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(803, 378)
         Me.Name = "EditActivite"
         Me.Text = "EditActivite"
         Me.ResumeLayout(False)
