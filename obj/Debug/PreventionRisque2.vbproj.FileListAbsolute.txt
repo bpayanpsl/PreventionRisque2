@@ -21,3 +21,5 @@ C:\Users\Benjamin.Payan\Documents\Visual Studio 2013\Projects\PreventionRisque2\
 C:\Users\Benjamin.Payan\Documents\Visual Studio 2013\Projects\PreventionRisque2\PreventionRisque2\obj\Debug\PreventionRisque2.MainPage.resources
 C:\Users\Benjamin.Payan\Documents\Visual Studio 2013\Projects\PreventionRisque2\PreventionRisque2\obj\Debug\PreventionRisque2.EditProcessus.resources
 C:\Users\Benjamin.Payan\Documents\Visual Studio 2013\Projects\PreventionRisque2\PreventionRisque2\obj\Debug\PreventionRisque2.EditActivite.resources
+C:\Users\Benjamin.Payan\Documents\Visual Studio 2013\Projects\PreventionRisque2\PreventionRisque2\obj\Debug\PreventionRisque2.NewID.resources
+C:\Users\Benjamin.Payan\Documents\Visual Studio 2013\Projects\PreventionRisque2\PreventionRisque2\obj\Debug\PreventionRisque2.Admin.resources

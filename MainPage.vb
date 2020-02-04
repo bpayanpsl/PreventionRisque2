@@ -4,16 +4,19 @@ Public Class MainPage
 
     Private Sub MainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChargeProcessus()
+        initialiseInterface()
         '' /////////////////////////////
         If societe = "" Then societe = "SRI" ' WORKAROUND
+        If identifiant = "" Then identifiant = "ADMINISTRATEUR"
         '' /////////////////////////////
+        If identifiant = "admin" Or identifiant = "ADMINISTRATEUR" Then AdministrateurToolStripMenuItem.Visible = True
         If societe = "SRI" Then
             SRIToolStripMenuItem.Checked = True
         ElseIf societe = "RIGAU" Then
             RIGAUToolStripMenuItem.Checked = True
         End If
-        Me.Width = 1764
-        Me.Height = 440
+        Me.Width = 1770
+        Me.Height = 480
     End Sub
 
     Private Sub ChargeProcessus()
@@ -40,12 +43,16 @@ Public Class MainPage
     Private Sub ComboBoxProcessus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxProcessus.SelectedIndexChanged
         chargeActivites()
         CheckedListBoxRisque.Items.Clear()
+        ComboBoxActivite.Enabled = True
+        ButtonAjoutActivite.Enabled = True
+        ButtonAjoutRisque.Enabled = False
     End Sub
 
     Private Sub ComboBoxActivite_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxActivite.SelectedIndexChanged
         rempliRisques()
         Me.Duer_contientTableAdapter.FillByProcActSoc(Me.DataSetContient.duer_contient, ComboBoxProcessus.Text, ComboBoxActivite.Text, societe.ToString)
         calculeCriticite()
+        ButtonAjoutRisque.Enabled = True
     End Sub
 
     Private Sub rempliRisques()
@@ -147,6 +154,10 @@ Public Class MainPage
         CheckedListBoxRisque.Items.Clear()
         DataSetContient.Clear()
         DataGridView1.Refresh()
+
+        ComboBoxActivite.Enabled = False
+        ButtonAjoutActivite.Enabled = False
+        ButtonAjoutRisque.Enabled = False
     End Sub
 
     Private Sub ToolStripMenuItemSuppr_Click(sender As Object, e As EventArgs)
@@ -172,5 +183,9 @@ Public Class MainPage
             DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
             DataGridView1.ClearSelection()
         End If
+    End Sub
+
+    Private Sub AdministrateurToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdministrateurToolStripMenuItem.Click
+        Admin.ShowDialog()
     End Sub
 End Class
