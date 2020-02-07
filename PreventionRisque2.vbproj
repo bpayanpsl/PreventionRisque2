@@ -84,6 +84,11 @@
       <DependentUpon>Connexion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Contient1DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contient1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetContient.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -166,6 +171,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Contient1DataSet.xsc">
+      <DependentUpon>Contient1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Contient1DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Contient1DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Contient1DataSet.xss">
+      <DependentUpon>Contient1DataSet.xsd</DependentUpon>
+    </None>
     <None Include="DataSetContient.xsc">
       <DependentUpon>DataSetContient.xsd</DependentUpon>
     </None>
