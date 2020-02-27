@@ -1,0 +1,180 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PreventionRisque2
+</name>
+</assembly>
+<members>
+<member name="T:PreventionRisque2.Contient1DataSet.duer_contientDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:PreventionRisque2.Contient1DataSet.duer_contientRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:PreventionRisque2.Contient1DataSet.duer_contientRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:PreventionRisque2.Contient1DataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:PreventionRisque2.Contient1DataSetTableAdapters.duer_contientTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:PreventionRisque2.Contient1DataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(PreventionRisque2.Contient1DataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:PreventionRisque2.Contient1DataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(PreventionRisque2.Contient1DataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:PreventionRisque2.Contient1DataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(PreventionRisque2.Contient1DataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:PreventionRisque2.Contient1DataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:PreventionRisque2.Contient1DataSetTableAdapters.TableAdapterManager.UpdateAll(PreventionRisque2.Contient1DataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:PreventionRisque2.Contient1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:PreventionRisque2.Contient1DataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:PreventionRisque2.Contient1DataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:PreventionRisque2.DataSetContient.duer_contientDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:PreventionRisque2.DataSetContient.duer_contientRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:PreventionRisque2.DataSetContient.duer_contientRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:PreventionRisque2.DataSetContient">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:PreventionRisque2.DataSetContientTableAdapters.duer_contientTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:PreventionRisque2.DataSetContientTableAdapters.TableAdapterManager.UpdateUpdatedRows(PreventionRisque2.DataSetContient,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:PreventionRisque2.DataSetContientTableAdapters.TableAdapterManager.UpdateInsertedRows(PreventionRisque2.DataSetContient,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:PreventionRisque2.DataSetContientTableAdapters.TableAdapterManager.UpdateDeletedRows(PreventionRisque2.DataSetContient,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:PreventionRisque2.DataSetContientTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:PreventionRisque2.DataSetContientTableAdapters.TableAdapterManager.UpdateAll(PreventionRisque2.DataSetContient)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:PreventionRisque2.DataSetContientTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:PreventionRisque2.DataSetContientTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:PreventionRisque2.DataSetContientTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:PreventionRisque2.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PreventionRisque2.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:PreventionRisque2.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:PreventionRisque2.UserDataSet.duer_userDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:PreventionRisque2.UserDataSet.duer_userRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:PreventionRisque2.UserDataSet.duer_userRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:PreventionRisque2.UserDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:PreventionRisque2.UserDataSetTableAdapters.duer_userTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:PreventionRisque2.UserDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(PreventionRisque2.UserDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:PreventionRisque2.UserDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(PreventionRisque2.UserDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:PreventionRisque2.UserDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(PreventionRisque2.UserDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:PreventionRisque2.UserDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:PreventionRisque2.UserDataSetTableAdapters.TableAdapterManager.UpdateAll(PreventionRisque2.UserDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:PreventionRisque2.UserDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:PreventionRisque2.UserDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:PreventionRisque2.UserDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+</members>
+</doc>

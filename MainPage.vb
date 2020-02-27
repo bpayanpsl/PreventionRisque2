@@ -15,8 +15,9 @@ Public Class MainPage
         ElseIf societe = "RIGAU" Then
             RIGAUToolStripMenuItem.Checked = True
         End If
-        Me.Width = 1770
-        Me.Height = 600
+        'Me.Width = 1770
+        'Me.Height = 600
+        DataGridView2.AutoGenerateColumns = False
     End Sub
 
     Private Sub ChargeProcessus()
@@ -40,7 +41,7 @@ Public Class MainPage
         con.Close()
     End Sub
 
-    Private Sub ComboBoxProcessus_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub ComboBoxProcessus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxProcessus.SelectedIndexChanged
         chargeActivites()
         CheckedListBoxRisque.Items.Clear()
         ComboBoxActivite.Enabled = True
@@ -48,10 +49,10 @@ Public Class MainPage
         ButtonAjoutRisque.Enabled = False
     End Sub
 
-    Private Sub ComboBoxActivite_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub ComboBoxActivite_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxActivite.SelectedIndexChanged
         rempliRisques()
         Me.Duer_contientTableAdapter.FillByProcActSoc(Me.DataSetContient.duer_contient, ComboBoxProcessus.Text, ComboBoxActivite.Text, societe.ToString)
-        calculeCriticite()
+        calculeCriticite(DataGridView1)
         ButtonAjoutRisque.Enabled = True
     End Sub
 
@@ -70,51 +71,24 @@ Public Class MainPage
         con.Close()
     End Sub
 
-    Private Sub ButtonAjoutProcessus_Click(sender As Object, e As EventArgs)
+    Private Sub ButtonAjoutProcessus_Click(sender As Object, e As EventArgs) Handles ButtonAjoutProcessus.Click
         EditProcessus.ShowDialog()
         ChargeProcessus()
     End Sub
 
-    Private Sub ButtonAjoutActivite_Click(sender As Object, e As EventArgs)
+    Private Sub ButtonAjoutActivite_Click(sender As Object, e As EventArgs) Handles ButtonAjoutActivite.Click
         EditActivite.ShowDialog()
     End Sub
 
-    Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs)
-        calculeCriticite()
+    Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
+        calculeCriticite(DataGridView1)
         DataGridView1.CurrentRow.Cells(10).Value = identifiant
         DataGridView1.CurrentRow.Cells(11).Value = Date.Now
         DuercontientBindingSource.EndEdit()
-        If Me.DataSetContient.HasChanges Then
-            Me.Duer_contientTableAdapter.Update(Me.DataSetContient.duer_contient)
-        End If
+        ButtonValiderChangements.Enabled = True
     End Sub
 
-    Private Sub calculeCriticite()
-        For Each row As DataGridViewRow In DataGridView1.Rows
-            If row.Cells(2).Value Is DBNull.Value Or row.Cells(2).Value Is Nothing Then
-                row.Cells(2).Value = 0
-            End If
-            If row.Cells(3).Value Is DBNull.Value Or row.Cells(3).Value Is Nothing Then
-                row.Cells(3).Value = 0
-            End If
-            row.Cells(4).Value = row.Cells(2).Value * row.Cells(3).Value
-            If row.Cells(4).Value < 25 Then
-                row.Cells(5).Value = "Faible"
-                row.Cells(5).Style.BackColor = Color.FromArgb(0, 255, 74)
-            ElseIf row.Cells(4).Value >= 25 And row.Cells(4).Value < 50 Then
-                row.Cells(5).Value = "Moyenne"
-                row.Cells(5).Style.BackColor = Color.FromArgb(255, 255, 74)
-            ElseIf row.Cells(4).Value >= 50 And row.Cells(4).Value < 75 Then
-                row.Cells(5).Value = "Importante"
-                row.Cells(5).Style.BackColor = Color.FromArgb(255, 128, 32)
-            ElseIf row.Cells(4).Value >= 75 Then
-                row.Cells(5).Value = "Grave"
-                row.Cells(5).Style.BackColor = Color.FromArgb(255, 32, 0)
-            End If
-        Next
-    End Sub
-
-    Private Sub ButtonAjoutRisque_Click(sender As Object, e As EventArgs)
+    Private Sub ButtonAjoutRisque_Click(sender As Object, e As EventArgs) Handles ButtonAjoutRisque.Click
         For Each item In CheckedListBoxRisque.CheckedItems
             con.Open()
             Dim query As String = "INSERT INTO GPSQL.duer_contient (idProcessus, idActivite, idRisque, identifiant, dateModif, societe) VALUES ('" & ComboBoxProcessus.Text & "', '" & ComboBoxActivite.Text & "', '" & item.ToString & "', '" & identifiant & "', '" & DateTime.Now.ToString() & "', '" & societe & "')"
@@ -126,7 +100,7 @@ Public Class MainPage
             CheckedListBoxRisque.Items.RemoveAt(CheckedListBoxRisque.CheckedIndices(0))
         End While
         Me.Duer_contientTableAdapter.FillByProcActSoc(Me.DataSetContient.duer_contient, ComboBoxProcessus.Text, ComboBoxActivite.Text, societe)
-        calculeCriticite()
+        calculeCriticite(DataGridView1)
     End Sub
 
     Private Sub FermerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FermerToolStripMenuItem.Click
@@ -154,10 +128,20 @@ Public Class MainPage
         CheckedListBoxRisque.Items.Clear()
         DataSetContient.Clear()
         DataGridView1.Refresh()
+        ButtonValiderChangements.Enabled = False
 
         ComboBoxActivite.Enabled = False
         ButtonAjoutActivite.Enabled = False
         ButtonAjoutRisque.Enabled = False
+
+        ComboBoxTriCrit.Text = ""
+        ComboBoxTriProc.Text = ""
+        If TabControl1.SelectedTab Is TabPage1 Then
+            Me.Duer_contientTableAdapter1.Fill(Me.Contient1DataSet.duer_contient, societe)
+        Else
+            Contient1DataSet.Clear()
+            DataGridView2.Refresh()
+        End If
     End Sub
 
     Private Sub ToolStripMenuItemSuppr_Click(sender As Object, e As EventArgs)
@@ -165,7 +149,7 @@ Public Class MainPage
         DataGridView1.ClearSelection()
     End Sub
 
-    Private Sub DataGridView1_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs)
+    Private Sub DataGridView1_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles DataGridView1.RowsRemoved
         DuercontientBindingSource.EndEdit()
         If Me.DataSetContient.HasChanges Then
             Me.Duer_contientTableAdapter.Update(Me.DataSetContient.duer_contient)
@@ -173,11 +157,11 @@ Public Class MainPage
         rempliRisques()
     End Sub
 
-    Private Sub DataGridView1_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs)
-        calculeCriticite()
+    Private Sub DataGridView1_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles DataGridView1.UserDeletedRow
+        calculeCriticite(DataGridView1)
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         Dim senderGrid = CType(sender, DataGridView)
         If TypeOf (senderGrid.Columns(e.ColumnIndex)) Is DataGridViewButtonColumn And e.RowIndex >= 0 Then
             DataGridView1.Rows.RemoveAt(DataGridView1.CurrentCell.RowIndex)
@@ -192,8 +176,10 @@ Public Class MainPage
     Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
         If TabControl1.SelectedTab Is TabPage1 Then
             If ComboBoxTriProc.Text = "" And ComboBoxTriCrit.Text = "" Then
-                Me.Duer_contientTableAdapter1.Fill(Me.Contient1DataSet.duer_contient)
+                Me.Duer_contientTableAdapter1.Fill(Me.Contient1DataSet.duer_contient, societe)
             End If
+
+            ComboBoxTriProc.Items.Add("Tout")
 
             con.Open()
             Dim query As String = "SELECT DISTINCT idProcessus FROM GPSQL.duer_contient ORDER BY idProcessus"
@@ -208,6 +194,70 @@ Public Class MainPage
             End If
             reader.Close()
             con.Close()
+            calculeCriticite(DataGridView2)
         End If
+    End Sub
+
+    Private Sub ComboBoxTriProc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxTriProc.SelectedIndexChanged
+        ComboBoxTriCrit.Text = ""
+        If ComboBoxTriProc.Text = "Tout" Then
+            Me.Duer_contientTableAdapter1.Fill(Me.Contient1DataSet.duer_contient, societe)
+        Else
+            Me.Duer_contientTableAdapter1.FillByProcessus(Me.Contient1DataSet.duer_contient, ComboBoxTriProc.Text, societe)
+        End If
+        calculeCriticite(DataGridView2)
+    End Sub
+
+    Private Sub ComboBoxTriCrit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxTriCrit.SelectedIndexChanged
+        ComboBoxTriProc.Text = ""
+        If ComboBoxTriCrit.Text = "Tout" Then
+            Me.Duer_contientTableAdapter1.Fill(Me.Contient1DataSet.duer_contient, societe)
+        Else
+            Me.Duer_contientTableAdapter1.FillByCriticite(Me.Contient1DataSet.duer_contient, ComboBoxTriCrit.Text, societe)
+        End If
+        calculeCriticite(DataGridView2)
+    End Sub
+
+    Private Sub ButtonValiderChangements_Click(sender As Object, e As EventArgs) Handles ButtonValiderChangements.Click
+        If Me.DataSetContient.HasChanges Then
+            Me.Duer_contientTableAdapter.Update(Me.DataSetContient.duer_contient)
+        End If
+        ButtonValiderChangements.Enabled = False
+    End Sub
+
+    Private Function isTheSameValue(row As Integer)
+        If row > 0 Then
+            Dim cell1 As DataGridViewCell = DataGridView2.Rows(row).Cells(0)
+            Dim cell2 As DataGridViewCell = DataGridView2.Rows(row - 1).Cells(0)
+            If cell1 Is DBNull.Value Or cell2 Is DBNull.Value Then
+                isTheSameValue = False
+            Else
+                isTheSameValue = cell1.Value.ToString = cell2.Value.ToString
+            End If
+        Else
+            isTheSameValue = False
+        End If
+    End Function
+
+    Private Sub DataGridView2_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles DataGridView2.CellPainting
+            e.AdvancedBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None
+        If isTheSameValue(e.RowIndex) And (e.ColumnIndex = 0 Or e.ColumnIndex = 1) Then
+            e.AdvancedBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None
+        Else
+            e.AdvancedBorderStyle.Top = DataGridView2.AdvancedCellBorderStyle.Top
+        End If
+    End Sub
+
+    Private Sub DataGridView2_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles DataGridView2.CellFormatting
+        If e.RowIndex = 0 Then Exit Sub
+        If isTheSameValue(e.RowIndex) And (e.ColumnIndex = 0 Or e.ColumnIndex = 1) Then
+            e.Value = ""
+            e.FormattingApplied = True
+        End If
+    End Sub
+
+    Private Sub DeconnexionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeconnexionToolStripMenuItem.Click
+        Connexion.Show()
+        Me.Close()
     End Sub
 End Class

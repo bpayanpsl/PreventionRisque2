@@ -34,17 +34,17 @@ Partial Class Connexion
         '
         'TextBoxID
         '
-        Me.TextBoxID.Location = New System.Drawing.Point(118, 14)
+        Me.TextBoxID.Location = New System.Drawing.Point(101, 14)
         Me.TextBoxID.Name = "TextBoxID"
-        Me.TextBoxID.Size = New System.Drawing.Size(120, 20)
+        Me.TextBoxID.Size = New System.Drawing.Size(160, 20)
         Me.TextBoxID.TabIndex = 0
         '
         'TextBoxMDP
         '
-        Me.TextBoxMDP.Location = New System.Drawing.Point(118, 40)
+        Me.TextBoxMDP.Location = New System.Drawing.Point(101, 40)
         Me.TextBoxMDP.Name = "TextBoxMDP"
         Me.TextBoxMDP.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBoxMDP.Size = New System.Drawing.Size(120, 20)
+        Me.TextBoxMDP.Size = New System.Drawing.Size(160, 20)
         Me.TextBoxMDP.TabIndex = 1
         '
         'ButtonDemandeID
@@ -59,7 +59,7 @@ Partial Class Connexion
         'LabelID
         '
         Me.LabelID.AutoSize = True
-        Me.LabelID.Location = New System.Drawing.Point(53, 17)
+        Me.LabelID.Location = New System.Drawing.Point(36, 17)
         Me.LabelID.Name = "LabelID"
         Me.LabelID.Size = New System.Drawing.Size(59, 13)
         Me.LabelID.TabIndex = 3
@@ -68,7 +68,7 @@ Partial Class Connexion
         'LabelMDP
         '
         Me.LabelMDP.AutoSize = True
-        Me.LabelMDP.Location = New System.Drawing.Point(35, 43)
+        Me.LabelMDP.Location = New System.Drawing.Point(18, 43)
         Me.LabelMDP.Name = "LabelMDP"
         Me.LabelMDP.Size = New System.Drawing.Size(77, 13)
         Me.LabelMDP.TabIndex = 4
@@ -87,15 +87,15 @@ Partial Class Connexion
         '
         Me.ComboBoxSociete.FormattingEnabled = True
         Me.ComboBoxSociete.Items.AddRange(New Object() {"SRI", "RIGAU"})
-        Me.ComboBoxSociete.Location = New System.Drawing.Point(118, 67)
+        Me.ComboBoxSociete.Location = New System.Drawing.Point(101, 67)
         Me.ComboBoxSociete.Name = "ComboBoxSociete"
-        Me.ComboBoxSociete.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxSociete.Size = New System.Drawing.Size(160, 21)
         Me.ComboBoxSociete.TabIndex = 2
         '
         'LabelSociete
         '
         Me.LabelSociete.AutoSize = True
-        Me.LabelSociete.Location = New System.Drawing.Point(63, 70)
+        Me.LabelSociete.Location = New System.Drawing.Point(46, 70)
         Me.LabelSociete.Name = "LabelSociete"
         Me.LabelSociete.Size = New System.Drawing.Size(49, 13)
         Me.LabelSociete.TabIndex = 7

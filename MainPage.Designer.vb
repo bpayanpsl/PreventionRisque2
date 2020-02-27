@@ -23,15 +23,13 @@ Partial Class MainPage
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.DuercontientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSetContient = New PreventionRisque2.DataSetContient()
-        Me.Duer_contientTableAdapter = New PreventionRisque2.DataSetContientTableAdapters.duer_contientTableAdapter()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FermerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,6 +39,7 @@ Partial Class MainPage
         Me.AdministrateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.ButtonValiderChangements = New System.Windows.Forms.Button()
         Me.CheckedListBoxRisque = New System.Windows.Forms.CheckedListBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBoxProcessus = New System.Windows.Forms.ComboBox()
@@ -48,18 +47,7 @@ Partial Class MainPage
         Me.ComboBoxActivite = New System.Windows.Forms.ComboBox()
         Me.LabelProc = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IdRisqueDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DetailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FrequenceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GraviteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PreventionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CriticiteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MesureExistanteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MesureProposeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.commentaire = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NiveauPreventionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.IdentifiantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateModifDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Suppr = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.ButtonAjoutRisque = New System.Windows.Forms.Button()
         Me.ButtonAjoutProcessus = New System.Windows.Forms.Button()
@@ -68,6 +56,20 @@ Partial Class MainPage
         Me.ComboBoxTriCrit = New System.Windows.Forms.ComboBox()
         Me.ComboBoxTriProc = New System.Windows.Forms.ComboBox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DeconnexionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IdRisqueDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DetailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FrequenceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GraviteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PreventionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CriticiteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MesureExistanteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MesureProposeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NiveauPreventionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.IdentifiantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateModifDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DuercontientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSetContient = New PreventionRisque2.DataSetContient()
         Me.IdProcessusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdActiviteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdRisqueDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -84,45 +86,32 @@ Partial Class MainPage
         Me.DateModifDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DuercontientBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Contient1DataSet = New PreventionRisque2.Contient1DataSet()
+        Me.Duer_contientTableAdapter = New PreventionRisque2.DataSetContientTableAdapters.duer_contientTableAdapter()
         Me.Duer_contientTableAdapter1 = New PreventionRisque2.Contient1DataSetTableAdapters.duer_contientTableAdapter()
-        CType(Me.DuercontientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSetContient, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DuercontientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSetContient, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DuercontientBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Contient1DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'DuercontientBindingSource
-        '
-        Me.DuercontientBindingSource.DataMember = "duer_contient"
-        Me.DuercontientBindingSource.DataSource = Me.DataSetContient
-        '
-        'DataSetContient
-        '
-        Me.DataSetContient.DataSetName = "DataSetContient"
-        Me.DataSetContient.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Duer_contientTableAdapter
-        '
-        Me.Duer_contientTableAdapter.ClearBeforeFill = True
         '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.SociétéToolStripMenuItem, Me.AdministrateurToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1832, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1284, 24)
         Me.MenuStrip1.TabIndex = 7
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'FichierToolStripMenuItem
         '
-        Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FermerToolStripMenuItem})
+        Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeconnexionToolStripMenuItem, Me.FermerToolStripMenuItem})
         Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
         Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.FichierToolStripMenuItem.Text = "Fichier"
@@ -130,7 +119,7 @@ Partial Class MainPage
         'FermerToolStripMenuItem
         '
         Me.FermerToolStripMenuItem.Name = "FermerToolStripMenuItem"
-        Me.FermerToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
+        Me.FermerToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.FermerToolStripMenuItem.Text = "Quitter"
         '
         'SociétéToolStripMenuItem
@@ -166,11 +155,12 @@ Partial Class MainPage
         Me.TabControl1.Location = New System.Drawing.Point(12, 27)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1808, 531)
+        Me.TabControl1.Size = New System.Drawing.Size(1264, 491)
         Me.TabControl1.TabIndex = 11
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.ButtonValiderChangements)
         Me.TabPage2.Controls.Add(Me.CheckedListBoxRisque)
         Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.ComboBoxProcessus)
@@ -184,10 +174,19 @@ Partial Class MainPage
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1800, 505)
+        Me.TabPage2.Size = New System.Drawing.Size(1256, 465)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Saisie"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'ButtonValiderChangements
+        '
+        Me.ButtonValiderChangements.Location = New System.Drawing.Point(463, 417)
+        Me.ButtonValiderChangements.Name = "ButtonValiderChangements"
+        Me.ButtonValiderChangements.Size = New System.Drawing.Size(162, 36)
+        Me.ButtonValiderChangements.TabIndex = 21
+        Me.ButtonValiderChangements.Text = "Valider changements"
+        Me.ButtonValiderChangements.UseVisualStyleBackColor = True
         '
         'CheckedListBoxRisque
         '
@@ -195,7 +194,7 @@ Partial Class MainPage
         Me.CheckedListBoxRisque.FormattingEnabled = True
         Me.CheckedListBoxRisque.Location = New System.Drawing.Point(6, 109)
         Me.CheckedListBoxRisque.Name = "CheckedListBoxRisque"
-        Me.CheckedListBoxRisque.Size = New System.Drawing.Size(359, 304)
+        Me.CheckedListBoxRisque.Size = New System.Drawing.Size(402, 304)
         Me.CheckedListBoxRisque.TabIndex = 11
         '
         'Label3
@@ -209,10 +208,11 @@ Partial Class MainPage
         '
         'ComboBoxProcessus
         '
+        Me.ComboBoxProcessus.DropDownWidth = 400
         Me.ComboBoxProcessus.FormattingEnabled = True
         Me.ComboBoxProcessus.Location = New System.Drawing.Point(6, 29)
         Me.ComboBoxProcessus.Name = "ComboBoxProcessus"
-        Me.ComboBoxProcessus.Size = New System.Drawing.Size(317, 21)
+        Me.ComboBoxProcessus.Size = New System.Drawing.Size(360, 21)
         Me.ComboBoxProcessus.TabIndex = 12
         '
         'Label2
@@ -226,10 +226,11 @@ Partial Class MainPage
         '
         'ComboBoxActivite
         '
+        Me.ComboBoxActivite.DropDownWidth = 600
         Me.ComboBoxActivite.FormattingEnabled = True
         Me.ComboBoxActivite.Location = New System.Drawing.Point(6, 69)
         Me.ComboBoxActivite.Name = "ComboBoxActivite"
-        Me.ComboBoxActivite.Size = New System.Drawing.Size(317, 21)
+        Me.ComboBoxActivite.Size = New System.Drawing.Size(360, 21)
         Me.ComboBoxActivite.TabIndex = 13
         '
         'LabelProc
@@ -246,24 +247,129 @@ Partial Class MainPage
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdRisqueDataGridViewTextBoxColumn, Me.DetailDataGridViewTextBoxColumn, Me.FrequenceDataGridViewTextBoxColumn, Me.GraviteDataGridViewTextBoxColumn, Me.PreventionDataGridViewTextBoxColumn, Me.CriticiteDataGridViewTextBoxColumn, Me.MesureExistanteDataGridViewTextBoxColumn, Me.MesureProposeDataGridViewTextBoxColumn, Me.commentaire, Me.NiveauPreventionDataGridViewTextBoxColumn, Me.IdentifiantDataGridViewTextBoxColumn, Me.DateModifDataGridViewTextBoxColumn, Me.Suppr})
         Me.DataGridView1.DataSource = Me.DuercontientBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(420, 29)
+        Me.DataGridView1.Location = New System.Drawing.Point(463, 29)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle12
-        Me.DataGridView1.Size = New System.Drawing.Size(1305, 382)
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridView1.Size = New System.Drawing.Size(787, 382)
         Me.DataGridView1.TabIndex = 14
+        '
+        'commentaire
+        '
+        Me.commentaire.DataPropertyName = "commentaire"
+        Me.commentaire.HeaderText = "Commentaire"
+        Me.commentaire.Name = "commentaire"
+        Me.commentaire.Width = 250
+        '
+        'Suppr
+        '
+        Me.Suppr.DataPropertyName = "idRisque"
+        Me.Suppr.HeaderText = ""
+        Me.Suppr.Name = "Suppr"
+        Me.Suppr.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Suppr.Text = "X"
+        Me.Suppr.UseColumnTextForButtonValue = True
+        Me.Suppr.Width = 40
+        '
+        'ButtonAjoutRisque
+        '
+        Me.ButtonAjoutRisque.Location = New System.Drawing.Point(414, 232)
+        Me.ButtonAjoutRisque.Name = "ButtonAjoutRisque"
+        Me.ButtonAjoutRisque.Size = New System.Drawing.Size(43, 38)
+        Me.ButtonAjoutRisque.TabIndex = 17
+        Me.ButtonAjoutRisque.Text = ">"
+        Me.ButtonAjoutRisque.UseVisualStyleBackColor = True
+        '
+        'ButtonAjoutProcessus
+        '
+        Me.ButtonAjoutProcessus.Location = New System.Drawing.Point(372, 29)
+        Me.ButtonAjoutProcessus.Name = "ButtonAjoutProcessus"
+        Me.ButtonAjoutProcessus.Size = New System.Drawing.Size(36, 23)
+        Me.ButtonAjoutProcessus.TabIndex = 15
+        Me.ButtonAjoutProcessus.Text = "+ / -"
+        Me.ButtonAjoutProcessus.UseVisualStyleBackColor = True
+        '
+        'ButtonAjoutActivite
+        '
+        Me.ButtonAjoutActivite.Location = New System.Drawing.Point(372, 67)
+        Me.ButtonAjoutActivite.Name = "ButtonAjoutActivite"
+        Me.ButtonAjoutActivite.Size = New System.Drawing.Size(36, 23)
+        Me.ButtonAjoutActivite.TabIndex = 16
+        Me.ButtonAjoutActivite.Text = "+ / -"
+        Me.ButtonAjoutActivite.UseVisualStyleBackColor = True
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.ComboBoxTriCrit)
+        Me.TabPage1.Controls.Add(Me.ComboBoxTriProc)
+        Me.TabPage1.Controls.Add(Me.DataGridView2)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1256, 465)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "DUER"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'ComboBoxTriCrit
+        '
+        Me.ComboBoxTriCrit.FormattingEnabled = True
+        Me.ComboBoxTriCrit.Items.AddRange(New Object() {"Tout", "Faible", "Moyenne", "Importante", "Grave"})
+        Me.ComboBoxTriCrit.Location = New System.Drawing.Point(483, 54)
+        Me.ComboBoxTriCrit.Name = "ComboBoxTriCrit"
+        Me.ComboBoxTriCrit.Size = New System.Drawing.Size(282, 21)
+        Me.ComboBoxTriCrit.TabIndex = 2
+        '
+        'ComboBoxTriProc
+        '
+        Me.ComboBoxTriProc.FormattingEnabled = True
+        Me.ComboBoxTriProc.Location = New System.Drawing.Point(483, 27)
+        Me.ComboBoxTriProc.Name = "ComboBoxTriProc"
+        Me.ComboBoxTriProc.Size = New System.Drawing.Size(282, 21)
+        Me.ComboBoxTriProc.TabIndex = 1
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AutoGenerateColumns = False
+        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdProcessusDataGridViewTextBoxColumn, Me.IdActiviteDataGridViewTextBoxColumn, Me.IdRisqueDataGridViewTextBoxColumn1, Me.DetailDataGridViewTextBoxColumn1, Me.FrequenceDataGridViewTextBoxColumn1, Me.GraviteDataGridViewTextBoxColumn1, Me.PreventionDataGridViewTextBoxColumn1, Me.CriticiteDataGridViewTextBoxColumn1, Me.CommentaireDataGridViewTextBoxColumn, Me.MesureExistanteDataGridViewTextBoxColumn1, Me.MesureProposeDataGridViewTextBoxColumn1, Me.NiveauPreventionDataGridViewTextBoxColumn1, Me.IdentifiantDataGridViewTextBoxColumn1, Me.DateModifDataGridViewTextBoxColumn1})
+        Me.DataGridView2.DataSource = Me.DuercontientBindingSource1
+        Me.DataGridView2.Location = New System.Drawing.Point(6, 84)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersVisible = False
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.RowsDefaultCellStyle = DataGridViewCellStyle7
+        Me.DataGridView2.Size = New System.Drawing.Size(1244, 359)
+        Me.DataGridView2.TabIndex = 0
+        '
+        'DeconnexionToolStripMenuItem
+        '
+        Me.DeconnexionToolStripMenuItem.Name = "DeconnexionToolStripMenuItem"
+        Me.DeconnexionToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.DeconnexionToolStripMenuItem.Text = "Deconnexion"
         '
         'IdRisqueDataGridViewTextBoxColumn
         '
@@ -283,8 +389,8 @@ Partial Class MainPage
         'FrequenceDataGridViewTextBoxColumn
         '
         Me.FrequenceDataGridViewTextBoxColumn.DataPropertyName = "frequence"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.FrequenceDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.FrequenceDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.FrequenceDataGridViewTextBoxColumn.HeaderText = "F"
         Me.FrequenceDataGridViewTextBoxColumn.Name = "FrequenceDataGridViewTextBoxColumn"
         Me.FrequenceDataGridViewTextBoxColumn.Width = 20
@@ -292,8 +398,8 @@ Partial Class MainPage
         'GraviteDataGridViewTextBoxColumn
         '
         Me.GraviteDataGridViewTextBoxColumn.DataPropertyName = "gravite"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.GraviteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.GraviteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.GraviteDataGridViewTextBoxColumn.HeaderText = "G"
         Me.GraviteDataGridViewTextBoxColumn.Name = "GraviteDataGridViewTextBoxColumn"
         Me.GraviteDataGridViewTextBoxColumn.Width = 20
@@ -301,8 +407,8 @@ Partial Class MainPage
         'PreventionDataGridViewTextBoxColumn
         '
         Me.PreventionDataGridViewTextBoxColumn.DataPropertyName = "prevention"
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.PreventionDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.PreventionDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
         Me.PreventionDataGridViewTextBoxColumn.HeaderText = "P"
         Me.PreventionDataGridViewTextBoxColumn.Name = "PreventionDataGridViewTextBoxColumn"
         Me.PreventionDataGridViewTextBoxColumn.Width = 20
@@ -327,13 +433,6 @@ Partial Class MainPage
         Me.MesureProposeDataGridViewTextBoxColumn.HeaderText = "Mesures proposées"
         Me.MesureProposeDataGridViewTextBoxColumn.Name = "MesureProposeDataGridViewTextBoxColumn"
         Me.MesureProposeDataGridViewTextBoxColumn.Width = 250
-        '
-        'commentaire
-        '
-        Me.commentaire.DataPropertyName = "commentaire"
-        Me.commentaire.HeaderText = "Commentaire"
-        Me.commentaire.Name = "commentaire"
-        Me.commentaire.Width = 250
         '
         'NiveauPreventionDataGridViewTextBoxColumn
         '
@@ -361,95 +460,15 @@ Partial Class MainPage
         Me.DateModifDataGridViewTextBoxColumn.ReadOnly = True
         Me.DateModifDataGridViewTextBoxColumn.Width = 150
         '
-        'Suppr
+        'DuercontientBindingSource
         '
-        Me.Suppr.DataPropertyName = "idRisque"
-        Me.Suppr.HeaderText = ""
-        Me.Suppr.Name = "Suppr"
-        Me.Suppr.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Suppr.Text = "X"
-        Me.Suppr.UseColumnTextForButtonValue = True
-        Me.Suppr.Width = 40
+        Me.DuercontientBindingSource.DataMember = "duer_contient"
+        Me.DuercontientBindingSource.DataSource = Me.DataSetContient
         '
-        'ButtonAjoutRisque
+        'DataSetContient
         '
-        Me.ButtonAjoutRisque.Location = New System.Drawing.Point(371, 233)
-        Me.ButtonAjoutRisque.Name = "ButtonAjoutRisque"
-        Me.ButtonAjoutRisque.Size = New System.Drawing.Size(43, 38)
-        Me.ButtonAjoutRisque.TabIndex = 17
-        Me.ButtonAjoutRisque.Text = ">"
-        Me.ButtonAjoutRisque.UseVisualStyleBackColor = True
-        '
-        'ButtonAjoutProcessus
-        '
-        Me.ButtonAjoutProcessus.Location = New System.Drawing.Point(329, 29)
-        Me.ButtonAjoutProcessus.Name = "ButtonAjoutProcessus"
-        Me.ButtonAjoutProcessus.Size = New System.Drawing.Size(36, 23)
-        Me.ButtonAjoutProcessus.TabIndex = 15
-        Me.ButtonAjoutProcessus.Text = "+ / -"
-        Me.ButtonAjoutProcessus.UseVisualStyleBackColor = True
-        '
-        'ButtonAjoutActivite
-        '
-        Me.ButtonAjoutActivite.Location = New System.Drawing.Point(329, 67)
-        Me.ButtonAjoutActivite.Name = "ButtonAjoutActivite"
-        Me.ButtonAjoutActivite.Size = New System.Drawing.Size(36, 23)
-        Me.ButtonAjoutActivite.TabIndex = 16
-        Me.ButtonAjoutActivite.Text = "+ / -"
-        Me.ButtonAjoutActivite.UseVisualStyleBackColor = True
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Controls.Add(Me.ComboBoxTriCrit)
-        Me.TabPage1.Controls.Add(Me.ComboBoxTriProc)
-        Me.TabPage1.Controls.Add(Me.DataGridView2)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1800, 505)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'ComboBoxTriCrit
-        '
-        Me.ComboBoxTriCrit.FormattingEnabled = True
-        Me.ComboBoxTriCrit.Items.AddRange(New Object() {"Faible", "Moyenne", "Importante", "Grave"})
-        Me.ComboBoxTriCrit.Location = New System.Drawing.Point(754, 46)
-        Me.ComboBoxTriCrit.Name = "ComboBoxTriCrit"
-        Me.ComboBoxTriCrit.Size = New System.Drawing.Size(180, 21)
-        Me.ComboBoxTriCrit.TabIndex = 2
-        '
-        'ComboBoxTriProc
-        '
-        Me.ComboBoxTriProc.FormattingEnabled = True
-        Me.ComboBoxTriProc.Location = New System.Drawing.Point(754, 19)
-        Me.ComboBoxTriProc.Name = "ComboBoxTriProc"
-        Me.ComboBoxTriProc.Size = New System.Drawing.Size(180, 21)
-        Me.ComboBoxTriProc.TabIndex = 1
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.AutoGenerateColumns = False
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdProcessusDataGridViewTextBoxColumn, Me.IdActiviteDataGridViewTextBoxColumn, Me.IdRisqueDataGridViewTextBoxColumn1, Me.DetailDataGridViewTextBoxColumn1, Me.FrequenceDataGridViewTextBoxColumn1, Me.GraviteDataGridViewTextBoxColumn1, Me.PreventionDataGridViewTextBoxColumn1, Me.CriticiteDataGridViewTextBoxColumn1, Me.CommentaireDataGridViewTextBoxColumn, Me.MesureExistanteDataGridViewTextBoxColumn1, Me.MesureProposeDataGridViewTextBoxColumn1, Me.NiveauPreventionDataGridViewTextBoxColumn1, Me.IdentifiantDataGridViewTextBoxColumn1, Me.DateModifDataGridViewTextBoxColumn1})
-        Me.DataGridView2.DataSource = Me.DuercontientBindingSource1
-        Me.DataGridView2.Location = New System.Drawing.Point(59, 79)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.Size = New System.Drawing.Size(1642, 359)
-        Me.DataGridView2.TabIndex = 0
+        Me.DataSetContient.DataSetName = "DataSetContient"
+        Me.DataSetContient.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'IdProcessusDataGridViewTextBoxColumn
         '
@@ -457,7 +476,7 @@ Partial Class MainPage
         Me.IdProcessusDataGridViewTextBoxColumn.HeaderText = "Processus"
         Me.IdProcessusDataGridViewTextBoxColumn.Name = "IdProcessusDataGridViewTextBoxColumn"
         Me.IdProcessusDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdProcessusDataGridViewTextBoxColumn.Width = 150
+        Me.IdProcessusDataGridViewTextBoxColumn.Width = 81
         '
         'IdActiviteDataGridViewTextBoxColumn
         '
@@ -465,7 +484,7 @@ Partial Class MainPage
         Me.IdActiviteDataGridViewTextBoxColumn.HeaderText = "Activite"
         Me.IdActiviteDataGridViewTextBoxColumn.Name = "IdActiviteDataGridViewTextBoxColumn"
         Me.IdActiviteDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdActiviteDataGridViewTextBoxColumn.Width = 200
+        Me.IdActiviteDataGridViewTextBoxColumn.Width = 67
         '
         'IdRisqueDataGridViewTextBoxColumn1
         '
@@ -473,7 +492,7 @@ Partial Class MainPage
         Me.IdRisqueDataGridViewTextBoxColumn1.HeaderText = "Risque"
         Me.IdRisqueDataGridViewTextBoxColumn1.Name = "IdRisqueDataGridViewTextBoxColumn1"
         Me.IdRisqueDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.IdRisqueDataGridViewTextBoxColumn1.Width = 200
+        Me.IdRisqueDataGridViewTextBoxColumn1.Width = 65
         '
         'DetailDataGridViewTextBoxColumn1
         '
@@ -481,7 +500,7 @@ Partial Class MainPage
         Me.DetailDataGridViewTextBoxColumn1.HeaderText = "Detail"
         Me.DetailDataGridViewTextBoxColumn1.Name = "DetailDataGridViewTextBoxColumn1"
         Me.DetailDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DetailDataGridViewTextBoxColumn1.Width = 200
+        Me.DetailDataGridViewTextBoxColumn1.Width = 59
         '
         'FrequenceDataGridViewTextBoxColumn1
         '
@@ -489,7 +508,7 @@ Partial Class MainPage
         Me.FrequenceDataGridViewTextBoxColumn1.HeaderText = "F"
         Me.FrequenceDataGridViewTextBoxColumn1.Name = "FrequenceDataGridViewTextBoxColumn1"
         Me.FrequenceDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.FrequenceDataGridViewTextBoxColumn1.Width = 20
+        Me.FrequenceDataGridViewTextBoxColumn1.Width = 38
         '
         'GraviteDataGridViewTextBoxColumn1
         '
@@ -497,7 +516,7 @@ Partial Class MainPage
         Me.GraviteDataGridViewTextBoxColumn1.HeaderText = "G"
         Me.GraviteDataGridViewTextBoxColumn1.Name = "GraviteDataGridViewTextBoxColumn1"
         Me.GraviteDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.GraviteDataGridViewTextBoxColumn1.Width = 20
+        Me.GraviteDataGridViewTextBoxColumn1.Width = 40
         '
         'PreventionDataGridViewTextBoxColumn1
         '
@@ -505,7 +524,7 @@ Partial Class MainPage
         Me.PreventionDataGridViewTextBoxColumn1.HeaderText = "P"
         Me.PreventionDataGridViewTextBoxColumn1.Name = "PreventionDataGridViewTextBoxColumn1"
         Me.PreventionDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.PreventionDataGridViewTextBoxColumn1.Width = 20
+        Me.PreventionDataGridViewTextBoxColumn1.Width = 39
         '
         'CriticiteDataGridViewTextBoxColumn1
         '
@@ -513,6 +532,7 @@ Partial Class MainPage
         Me.CriticiteDataGridViewTextBoxColumn1.HeaderText = "Criticite"
         Me.CriticiteDataGridViewTextBoxColumn1.Name = "CriticiteDataGridViewTextBoxColumn1"
         Me.CriticiteDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.CriticiteDataGridViewTextBoxColumn1.Width = 66
         '
         'CommentaireDataGridViewTextBoxColumn
         '
@@ -520,7 +540,7 @@ Partial Class MainPage
         Me.CommentaireDataGridViewTextBoxColumn.HeaderText = "Commentaire"
         Me.CommentaireDataGridViewTextBoxColumn.Name = "CommentaireDataGridViewTextBoxColumn"
         Me.CommentaireDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CommentaireDataGridViewTextBoxColumn.Width = 200
+        Me.CommentaireDataGridViewTextBoxColumn.Width = 93
         '
         'MesureExistanteDataGridViewTextBoxColumn1
         '
@@ -528,7 +548,7 @@ Partial Class MainPage
         Me.MesureExistanteDataGridViewTextBoxColumn1.HeaderText = "Mesures existantes"
         Me.MesureExistanteDataGridViewTextBoxColumn1.Name = "MesureExistanteDataGridViewTextBoxColumn1"
         Me.MesureExistanteDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.MesureExistanteDataGridViewTextBoxColumn1.Width = 200
+        Me.MesureExistanteDataGridViewTextBoxColumn1.Width = 122
         '
         'MesureProposeDataGridViewTextBoxColumn1
         '
@@ -536,7 +556,7 @@ Partial Class MainPage
         Me.MesureProposeDataGridViewTextBoxColumn1.HeaderText = "Mesures proposées"
         Me.MesureProposeDataGridViewTextBoxColumn1.Name = "MesureProposeDataGridViewTextBoxColumn1"
         Me.MesureProposeDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.MesureProposeDataGridViewTextBoxColumn1.Width = 200
+        Me.MesureProposeDataGridViewTextBoxColumn1.Width = 124
         '
         'NiveauPreventionDataGridViewTextBoxColumn1
         '
@@ -544,6 +564,7 @@ Partial Class MainPage
         Me.NiveauPreventionDataGridViewTextBoxColumn1.HeaderText = "Niveau prévention"
         Me.NiveauPreventionDataGridViewTextBoxColumn1.Name = "NiveauPreventionDataGridViewTextBoxColumn1"
         Me.NiveauPreventionDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.NiveauPreventionDataGridViewTextBoxColumn1.Width = 119
         '
         'IdentifiantDataGridViewTextBoxColumn1
         '
@@ -551,6 +572,7 @@ Partial Class MainPage
         Me.IdentifiantDataGridViewTextBoxColumn1.HeaderText = "Modifié par"
         Me.IdentifiantDataGridViewTextBoxColumn1.Name = "IdentifiantDataGridViewTextBoxColumn1"
         Me.IdentifiantDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.IdentifiantDataGridViewTextBoxColumn1.Width = 84
         '
         'DateModifDataGridViewTextBoxColumn1
         '
@@ -558,6 +580,7 @@ Partial Class MainPage
         Me.DateModifDataGridViewTextBoxColumn1.HeaderText = "Modifié le"
         Me.DateModifDataGridViewTextBoxColumn1.Name = "DateModifDataGridViewTextBoxColumn1"
         Me.DateModifDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DateModifDataGridViewTextBoxColumn1.Width = 77
         '
         'DuercontientBindingSource1
         '
@@ -569,6 +592,10 @@ Partial Class MainPage
         Me.Contient1DataSet.DataSetName = "Contient1DataSet"
         Me.Contient1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'Duer_contientTableAdapter
+        '
+        Me.Duer_contientTableAdapter.ClearBeforeFill = True
+        '
         'Duer_contientTableAdapter1
         '
         Me.Duer_contientTableAdapter1.ClearBeforeFill = True
@@ -577,14 +604,16 @@ Partial Class MainPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1832, 566)
+        Me.ClientSize = New System.Drawing.Size(1284, 521)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(1300, 560)
+        Me.MinimumSize = New System.Drawing.Size(1300, 560)
         Me.Name = "MainPage"
-        Me.Text = "MainPage"
-        CType(Me.DuercontientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSetContient, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Accueil"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
@@ -593,6 +622,8 @@ Partial Class MainPage
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage1.ResumeLayout(False)
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DuercontientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSetContient, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DuercontientBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Contient1DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -636,6 +667,12 @@ Partial Class MainPage
     Friend WithEvents ButtonAjoutProcessus As System.Windows.Forms.Button
     Friend WithEvents ButtonAjoutActivite As System.Windows.Forms.Button
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents Contient1DataSet As PreventionRisque2.Contient1DataSet
+    Friend WithEvents DuercontientBindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents Duer_contientTableAdapter1 As PreventionRisque2.Contient1DataSetTableAdapters.duer_contientTableAdapter
+    Friend WithEvents ComboBoxTriCrit As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxTriProc As System.Windows.Forms.ComboBox
+    Friend WithEvents ButtonValiderChangements As System.Windows.Forms.Button
     Friend WithEvents IdProcessusDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IdActiviteDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IdRisqueDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -650,9 +687,5 @@ Partial Class MainPage
     Friend WithEvents NiveauPreventionDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IdentifiantDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DateModifDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Contient1DataSet As PreventionRisque2.Contient1DataSet
-    Friend WithEvents DuercontientBindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents Duer_contientTableAdapter1 As PreventionRisque2.Contient1DataSetTableAdapters.duer_contientTableAdapter
-    Friend WithEvents ComboBoxTriCrit As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBoxTriProc As System.Windows.Forms.ComboBox
+    Friend WithEvents DeconnexionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
